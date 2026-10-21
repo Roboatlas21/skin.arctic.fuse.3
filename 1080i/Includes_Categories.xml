@@ -157,7 +157,9 @@
                 <height>$PARAM[height]</height>
                 <focusposition>0</focusposition>
                 <movement>0</movement>
-                <preloaditems>2</preloaditems>
+                <!-- Adjacent labels are drawn by the overlay. Preloading creates wraplist
+                     copies whose dynamic labels can become stale when only two items remain. -->
+                <preloaditems>0</preloaditems>
                 <width>720</width>
                 <!-- <onclick>RunScript(script.skinvariables,run_selectfocusdialog=$PARAM[id],"header=$VAR[Label_CategorySelectList]")</onclick> -->
                 <scrolltime tween="quadratic">0</scrolltime>
