@@ -192,6 +192,7 @@
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_Settings_Items_Indicators)">DialogCustom_Settings_Items_Indicators</include>
 
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_Autoscroll_Items)">DialogCustom_Autoscroll_Items</include>
+        <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_SkinUserLoginIdle_Items)">DialogCustom_SkinUserLoginIdle_Items</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_VideoOSD_Items)">DialogCustom_VideoOSD_Items</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_VideoInfo_Items)">DialogCustom_VideoInfo_Items</include>
         <include condition="String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),DialogCustom_Buttons_Items)">DialogCustom_Buttons_Items</include>
@@ -1595,6 +1596,49 @@
             <label>$NUMBER[10] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
             <onclick>Close</onclick>
             <onclick>Skin.SetString(AutoScrollTime,10m)</onclick>
+        </include>
+    </include>
+
+    <include name="DialogCustom_SkinUserLoginIdle_Items">
+        <include content="Settings_Button">
+            <param name="id">8001</param>
+            <param name="control">button</param>
+            <param name="dialog">true</param>
+            <label>$LOCALIZE[31623]</label>
+            <onclick>Close</onclick>
+            <onclick>Skin.Reset(SkinUserLogin.IdleTimeout)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8002</param>
+            <param name="control">button</param>
+            <param name="dialog">true</param>
+            <label>$NUMBER[15] $LOCALIZE[12391]</label>
+            <onclick>Close</onclick>
+            <onclick>Skin.SetString(SkinUserLogin.IdleTimeout,15m)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8003</param>
+            <param name="control">button</param>
+            <param name="dialog">true</param>
+            <label>$NUMBER[30] $LOCALIZE[12391]</label>
+            <onclick>Close</onclick>
+            <onclick>Skin.SetString(SkinUserLogin.IdleTimeout,30m)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8004</param>
+            <param name="control">button</param>
+            <param name="dialog">true</param>
+            <label>$NUMBER[1] $LOCALIZE[31526]</label>
+            <onclick>Close</onclick>
+            <onclick>Skin.SetString(SkinUserLogin.IdleTimeout,60m)</onclick>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8005</param>
+            <param name="control">button</param>
+            <param name="dialog">true</param>
+            <label>$NUMBER[2] $LOCALIZE[12392]</label>
+            <onclick>Close</onclick>
+            <onclick>Skin.SetString(SkinUserLogin.IdleTimeout,120m)</onclick>
         </include>
     </include>
 

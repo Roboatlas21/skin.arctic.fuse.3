@@ -794,6 +794,13 @@
             <selected>Skin.HasSetting(Startup.EnableHubPreloading)</selected>
             <visible>!Skin.HasSetting(Startup.DisableWaitForLoad)</visible>
         </include>
+        <include content="Settings_Label" description="Profiles">
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">007</param>
+            <param name="slevel">2</param>
+            <label>$LOCALIZE[13200]</label>
+        </include>
         <include content="Settings_Button" description="Widget profiles">
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
@@ -821,6 +828,19 @@
             <visible>!Skin.HasSetting(SkinUserLogin.Disabled)</visible>
         </include>
 
+        <include content="Settings_Button" description="Log off timer">
+            <param name="dialog">false</param>
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">010</param>
+            <param name="control">button</param>
+            <param name="slevel">2</param>
+            <label>$LOCALIZE[31638]</label>
+            <label2>$VAR[Label_Setting_SkinUserLoginIdleTimeout]</label2>
+            <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_SkinUserLoginIdle_Items,Home)</onclick>
+            <onclick>SetProperty(CustomDialogSettingsTitle,$LOCALIZE[31638],Home)</onclick>
+            <onclick>ActivateWindow(1118)</onclick>
+        </include>
         <include content="Settings_Label" description="Expert">
             <param name="window">skinsettings</param>
             <param name="baseid">$PARAM[baseid]</param>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="Label_Setting_SkinUserLoginIdleTimeout">
+        <value condition="Skin.String(SkinUserLogin.IdleTimeout,15m)">$NUMBER[15] $LOCALIZE[12391]</value>
+        <value condition="Skin.String(SkinUserLogin.IdleTimeout,30m)">$NUMBER[30] $LOCALIZE[12391]</value>
+        <value condition="Skin.String(SkinUserLogin.IdleTimeout,60m)">$NUMBER[1] $LOCALIZE[31526]</value>
+        <value condition="Skin.String(SkinUserLogin.IdleTimeout,120m)">$NUMBER[2] $LOCALIZE[12392]</value>
+        <value>$LOCALIZE[31623]</value>
+    </variable>
+
+
     <variable name="Label_Setting_LiveTV_Style">
         <value condition="Skin.HasSetting(Hub.1107.SquareChannels)">$LOCALIZE[31320]</value>
         <value>$LOCALIZE[31045]</value>

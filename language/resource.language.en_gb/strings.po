@@ -2623,3 +2623,8 @@ msgstr ""
 msgctxt "#31637"
 msgid "Trailer source"
 msgstr ""
+#: /1080i/Includes_SkinSettings.xml
+msgctxt "#31638"
+msgid "Log off timer"
+msgstr ""
+

@@ -8,4 +8,12 @@
         <stop>!Window.IsVisible(1191) | !String.IsEqual(Window(1191).Property(SplashTest.AutoTime),true) | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(splashtest_autotime),3)</stop>
         <onstop condition="Window.IsVisible(1191) + String.IsEqual(Window(1191).Property(SplashTest.AutoTime),true)">SetProperty(SplashTest.Hour,$VAR[Value_StartUp_Test_NextHour],1191)</onstop>
     </timer>
+    <timer>
+        <name>auto_skin_login</name>
+        <description>Open the current profile system's login screen after inactivity.</description>
+        <start reset="true">System.LoggedOn + !Window.IsVisible(1195) + !Window.IsVisible(loginscreen) + !System.HasVisibleModalDialog + [!Player.HasMedia | Player.Paused] + [!Skin.HasSetting(SkinUserLogin.Disabled) | System.HasLoginScreen] + [[Skin.String(SkinUserLogin.IdleTimeout,15m) + System.IdleTime(900)] | [Skin.String(SkinUserLogin.IdleTimeout,30m) + System.IdleTime(1800)] | [Skin.String(SkinUserLogin.IdleTimeout,60m) + System.IdleTime(3600)] | [Skin.String(SkinUserLogin.IdleTimeout,120m) + System.IdleTime(7200)]]</start>
+        <stop>Window.IsVisible(1195) | Window.IsVisible(loginscreen) | !System.LoggedOn | !System.IdleTime(1) | [Player.HasMedia + !Player.Paused]</stop>
+        <onstart condition="Skin.HasSetting(SkinUserLogin.Disabled)">System.LogOff</onstart>
+        <onstart condition="!Skin.HasSetting(SkinUserLogin.Disabled)">ActivateWindow(1195)</onstart>
+    </timer>
 </timers>
