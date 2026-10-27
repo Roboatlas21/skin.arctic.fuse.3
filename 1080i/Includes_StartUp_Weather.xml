@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    <include name="Background_StartUp_LakeRipple">
+    <include name="Background_StartUp_LakeShimmer">
         <control type="image">
-            <description>Alternating horizontal lake ripples</description>
+            <description>Subtle lake shimmer</description>
             <aspectratio align="center" aligny="center">scale</aspectratio>
-            <texture diffuse="special://home/addons/resource.images.arctic.splash/resources/effects/lake-$PARAM[band].png">$PARAM[texture]</texture>
-            <animation effect="slide" start="$PARAM[start],0" end="$PARAM[end],0" time="2300" tween="sine" easing="inout" pulse="true" condition="true" reversible="false">Conditional</animation>
+            <texture diffuse="special://home/addons/resource.images.arctic.splash/resources/effects/lake-$PARAM[band].png" colordiffuse="33ffffff">$PARAM[texture]</texture>
         </control>
     </include>
 
@@ -15,20 +14,19 @@
             <aspectratio align="center" aligny="center">scale</aspectratio>
             <texture>$PARAM[texture]</texture>
         </control>
-        <!-- Two narrow diffuse masks select alternating bands from the same lake.
-             Opposing horizontal slides ripple the reflection without moving the bank. -->
-        <include content="Background_StartUp_LakeRipple">
-            <param name="texture">$PARAM[texture]</param>
-            <param name="band">odd</param>
-            <param name="start">-3</param>
-            <param name="end">3</param>
-        </include>
-        <include content="Background_StartUp_LakeRipple">
-            <param name="texture">$PARAM[texture]</param>
-            <param name="band">even</param>
-            <param name="start">3</param>
-            <param name="end">-3</param>
-        </include>
+        <!-- Combine the complementary water masks under one slow transform.
+             This preserves a gentle shimmer without shearing neighbouring bands. -->
+        <control type="group">
+            <animation effect="slide" start="-1,0" end="1,0" time="6000" tween="sine" easing="inout" pulse="true" condition="true" reversible="false">Conditional</animation>
+            <include content="Background_StartUp_LakeShimmer">
+                <param name="texture">$PARAM[texture]</param>
+                <param name="band">odd</param>
+            </include>
+            <include content="Background_StartUp_LakeShimmer">
+                <param name="texture">$PARAM[texture]</param>
+                <param name="band">even</param>
+            </include>
+        </control>
     </include>
 
     <include name="Background_StartUp_DriftPair">
